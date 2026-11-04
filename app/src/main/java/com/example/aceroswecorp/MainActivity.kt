@@ -3,6 +3,7 @@ package com.example.aceroswecorp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -10,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_control_acceso)
         applySystemBarInsets()
-        findViewById<Button>(R.id.screen_back).setOnClickListener {
+        findViewById<ImageButton>(R.id.screen_back).setOnClickListener {
             finish()
         }
         findViewById<Button>(R.id.button_enter_sales).setOnClickListener {
