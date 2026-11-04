@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#101820"
@@ -35,7 +36,7 @@
             android:layout_marginTop="48dp"
             android:background="#1B252E"
             android:padding="20dp"
-            android:text="Iniciar sesión"
+            android:text="Explorar la aplicación"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -46,65 +47,30 @@
             android:background="#1B252E"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:text="Correo electrónico"
+            android:paddingBottom="16dp"
+            android:text="Firebase aún no está configurado. Selecciona un menú para probar la navegación; este modo no inicia sesión ni guarda información."
             android:textColor="#AAB4BC"
-            android:textSize="12sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="#101820"
-            android:hint="correo@empresa.com"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#68747E"
             android:textSize="13sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#1B252E"
-            android:paddingStart="20dp"
-            android:paddingTop="16dp"
-            android:paddingEnd="20dp"
-            android:text="Contraseña"
-            android:textColor="#AAB4BC"
-            android:textSize="12sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="#101820"
-            android:hint="••••••••"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#68747E"
-            android:textSize="13sp" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#1B252E"
-            android:buttonTint="#F2B705"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="Recordar sesión"
-            android:textColor="#D6DCE0"
-            android:textSize="12sp" />
 
         <Button
+            android:id="@+id/button_enter_sales"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#D95708"
-            android:text="INGRESAR AL SISTEMA"
+            android:text="EXPLORAR COMO VENDEDOR"
             android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_enter_admin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#1B252E"
+            android:text="EXPLORAR COMO ADMINISTRADOR"
+            android:textColor="#F2B705"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -112,8 +78,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="¿Olvidaste tu contraseña?"
-            android:textColor="#F2B705"
+            android:text="La autenticación real se conectará en otro hito."
+            android:textColor="#AAB4BC"
             android:textSize="12sp" />
     </LinearLayout>
 </ScrollView>

@@ -12,6 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aceroswecorp">
         <activity
+            android:name=".VentasDocumentosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialInventarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialCotizacionesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MisCotizacionesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultaInventarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NuevaCotizacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuAdministradorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">

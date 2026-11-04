@@ -56,6 +56,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/button_new_quote"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
@@ -66,6 +67,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/button_inventory"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginTop="8dp"
@@ -76,6 +78,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/button_my_quotes"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginTop="8dp"
@@ -95,6 +98,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/button_clients"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
@@ -143,9 +147,9 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inicio" android:textColor="#F2B705" android:textSize="11sp" />
-        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Clientes" android:textColor="#AAB4BC" android:textSize="11sp" />
-        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inventario" android:textColor="#AAB4BC" android:textSize="11sp" />
-        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Cotizaciones" android:textColor="#AAB4BC" android:textSize="11sp" />
+        <TextView android:id="@+id/nav_inicio" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inicio" android:textColor="#F2B705" android:textSize="11sp" />
+        <TextView android:id="@+id/nav_clientes" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Clientes" android:textColor="#AAB4BC" android:textSize="11sp" />
+        <TextView android:id="@+id/nav_inventario" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inventario" android:textColor="#AAB4BC" android:textSize="11sp" />
+        <TextView android:id="@+id/nav_cotizaciones" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Cotizaciones" android:textColor="#AAB4BC" android:textSize="11sp" />
     </LinearLayout>
 </LinearLayout>

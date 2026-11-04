@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Aceroswecorp</string>
+    <string name="select_client">Seleccionar cliente</string>
+    <string name="all_categories">Todas las categorías</string>
+    <string name="all_salespeople">Todos los vendedores</string>
+    <string name="last_30_days">Últimos 30 días</string>
+    <string name="all_inventory_movements">Todos los movimientos</string>
 </resources>
