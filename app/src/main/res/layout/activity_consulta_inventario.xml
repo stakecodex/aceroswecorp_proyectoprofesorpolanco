@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101820"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
+        android:text="‹   INVENTARIO"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView android:layout_width="match_parent" android:layout_height="4dp" android:background="#F2B705" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#1B252E"
+                android:hint="Buscar por producto o código..."
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#78848D"
+                android:textSize="13sp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="10dp"
+                android:background="#1B252E"
+                android:prompt="Todas las categorías" />
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:background="#1B252E" android:padding="14dp" android:text="Varilla corrugada 3/8”&#10;Código: VAR-038                         Disponible&#10;Existencia: 245 piezas                         $230.00" android:textColor="#D6DCE0" android:textSize="12sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#1B252E" android:padding="14dp" android:text="Lámina galvanizada cal. 26&#10;Código: LAM-026                         Disponible&#10;Existencia: 80 piezas                           $585.00" android:textColor="#D6DCE0" android:textSize="12sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#1B252E" android:padding="14dp" android:text="Ángulo de acero 1 1/2”&#10;Código: ANG-150                         Bajo stock&#10;Existencia: 12 piezas                           $410.00" android:textColor="#D6DCE0" android:textSize="12sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#1B252E" android:padding="14dp" android:text="Canal monten 4”&#10;Código: CAN-004                         Disponible&#10;Existencia: 36 piezas                           $890.00" android:textColor="#D6DCE0" android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="52dp" android:background="#141D25" android:gravity="center" android:orientation="horizontal">
+        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inicio" android:textColor="#AAB4BC" android:textSize="11sp" />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Clientes" android:textColor="#AAB4BC" android:textSize="11sp" />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inventario" android:textColor="#F2B705" android:textSize="11sp" />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Cotizaciones" android:textColor="#AAB4BC" android:textSize="11sp" />
+    </LinearLayout>
+</LinearLayout>
