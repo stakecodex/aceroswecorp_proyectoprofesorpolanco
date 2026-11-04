@@ -15,15 +15,14 @@
 
         <Button
             android:id="@+id/screen_back"
-            android:layout_width="match_parent"
+            android:layout_width="48dp"
             android:layout_height="48dp"
-            android:backgroundTint="#1B252E"
+            android:backgroundTint="#D95708"
             android:contentDescription="@string/back"
-            android:gravity="start|center_vertical"
-            android:paddingStart="14dp"
             android:text="@string/back_arrow"
             android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:layout_gravity="start" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -18,7 +18,7 @@
             android:id="@+id/screen_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:backgroundTint="#1B252E"
+            android:backgroundTint="#D95708"
             android:contentDescription="@string/back"
             android:text="@string/back_arrow"
             android:textColor="#FFFFFF"
