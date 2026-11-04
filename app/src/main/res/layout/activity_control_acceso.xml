@@ -13,25 +13,31 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <Button
-            android:id="@+id/screen_back"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:backgroundTint="#D95708"
-            android:contentDescription="@string/back"
-            android:layout_marginTop="40dp"
-            android:text="@string/back_arrow"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:layout_gravity="start" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="H  ACEROS WE-CORP"
-            android:textColor="#FFFFFF"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/screen_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#1B252E"
+                android:contentDescription="@string/back"
+                android:text="@string/back_arrow"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="H  ACEROS WE-CORP"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
