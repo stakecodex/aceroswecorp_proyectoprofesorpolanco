@@ -1,10 +1,13 @@
 package com.example.aceroswecorp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 
 abstract class PantallaNavegableActivity : AppCompatActivity() {
     protected abstract val layoutId: Int
@@ -20,11 +23,18 @@ abstract class PantallaNavegableActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, true)
         setContentView(layoutId)
 
         findViewById<View?>(R.id.screen_back)?.setOnClickListener { finish() }
         bindNavigation(R.id.nav_inicio, pantallaInicio())
-        bindNavigation(R.id.nav_clientes, NuevaCotizacionActivity::class.java)
+        findViewById<View?>(R.id.nav_clientes)?.setOnClickListener {
+            Toast.makeText(
+                this,
+                "La gestión de clientes se habilitará en otro hito.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
         bindNavigation(R.id.nav_inventario, pantallaInventario())
         bindNavigation(R.id.nav_cotizaciones, pantallaCotizaciones())
         bindNavigation(R.id.nav_reportes, VentasDocumentosActivity::class.java)
@@ -87,6 +97,17 @@ class MenuAdministradorActivity : PantallaNavegableActivity() {
 
 class NuevaCotizacionActivity : PantallaNavegableActivity() {
     override val layoutId = R.layout.activity_nueva_cotizacion
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        findViewById<View>(R.id.button_save_quote).setOnClickListener {
+            Toast.makeText(
+                this,
+                "No se guardó: Firebase todavía no está configurado.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
 }
 
 class ConsultaInventarioActivity : PantallaNavegableActivity() {
@@ -95,6 +116,44 @@ class ConsultaInventarioActivity : PantallaNavegableActivity() {
 
 class MisCotizacionesActivity : PantallaNavegableActivity() {
     override val layoutId = R.layout.activity_mis_cotizaciones
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        findViewById<Button>(R.id.filter_pending).setOnClickListener {
+            showQuotes("pending")
+        }
+        findViewById<Button>(R.id.filter_approved).setOnClickListener {
+            showQuotes("approved")
+        }
+        findViewById<Button>(R.id.filter_rejected).setOnClickListener {
+            showQuotes("rejected")
+        }
+        showQuotes("pending")
+    }
+
+    private fun showQuotes(status: String) {
+        val quoteGroups = mapOf(
+            "pending" to listOf(R.id.quote_pending_42, R.id.quote_pending_39),
+            "approved" to listOf(R.id.quote_approved_41),
+            "rejected" to listOf(R.id.quote_rejected_40)
+        )
+        quoteGroups.values.flatten().forEach { quoteId ->
+            findViewById<View>(quoteId).visibility =
+                if (quoteId in quoteGroups.getValue(status)) View.VISIBLE else View.GONE
+        }
+        val selectedColor = Color.parseColor("#D95708")
+        val defaultColor = Color.parseColor("#1B252E")
+        mapOf(
+            "pending" to R.id.filter_pending,
+            "approved" to R.id.filter_approved,
+            "rejected" to R.id.filter_rejected
+        ).forEach { (key, buttonId) ->
+            findViewById<Button>(buttonId).backgroundTintList =
+                android.content.res.ColorStateList.valueOf(
+                    if (key == status) selectedColor else defaultColor
+                )
+        }
+    }
 }
 
 class HistorialCotizacionesActivity : PantallaNavegableActivity() {

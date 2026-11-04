@@ -8,10 +8,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/screen_back"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:backgroundTint="#1B252E"
+            android:contentDescription="@string/back"
+            android:gravity="start|center_vertical"
+            android:paddingStart="14dp"
+            android:text="@string/back_arrow"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"

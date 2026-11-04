@@ -5,17 +5,35 @@
     android:background="#101820"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/screen_back"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#101820"
         android:gravity="center_vertical"
-        android:paddingStart="18dp"
-        android:text="‹   NUEVA COTIZACIÓN"
-        android:textColor="#FFFFFF"
-        android:textSize="17sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp">
+
+        <Button
+            android:id="@+id/screen_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#1B252E"
+            android:contentDescription="@string/back"
+            android:text="@string/back_arrow"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="NUEVA COTIZACIÓN"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView android:layout_width="match_parent" android:layout_height="4dp" android:background="#F2B705" />
 
@@ -37,7 +55,7 @@
             <EditText android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="6dp" android:background="#1B252E" android:hint="Buscar producto..." android:padding="12dp" android:textColor="#FFFFFF" android:textColorHint="#78848D" android:textSize="13sp" />
 
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="#1B252E" android:padding="12dp" android:text="Varilla corrugada 3/8”  ·  $230.00" android:textColor="#D6DCE0" android:textSize="13sp" />
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#1B252E" android:padding="12dp" android:text="Cantidad:  10 piezas                       $2,300.00" android:textColor="#AAB4BC" android:textSize="12sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#1B252E" android:padding="12dp" android:text="Cantidad: 10 piezas · $2,300.00" android:textColor="#AAB4BC" android:textSize="12sp" />
 
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="DESCRIPCIÓN / NOTAS" android:textColor="#F2B705" android:textSize="11sp" android:textStyle="bold" />
             <EditText android:layout_width="match_parent" android:layout_height="72dp" android:layout_marginTop="6dp" android:background="#1B252E" android:gravity="top" android:hint="Agregar notas..." android:padding="12dp" android:textColor="#FFFFFF" android:textColorHint="#78848D" android:textSize="13sp" />
@@ -48,12 +66,13 @@
                 android:layout_marginTop="18dp"
                 android:background="#1B252E"
                 android:padding="14dp"
-                android:text="TOTAL CON IVA                                  $2,668.00"
+                android:text="TOTAL CON IVA · $2,668.00"
                 android:textColor="#F2B705"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/button_save_quote"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="14dp"

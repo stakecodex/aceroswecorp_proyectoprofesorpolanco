@@ -5,4 +5,6 @@
     <string name="all_salespeople">Todos los vendedores</string>
     <string name="last_30_days">Últimos 30 días</string>
     <string name="all_inventory_movements">Todos los movimientos</string>
+    <string name="back">Volver</string>
+    <string name="back_arrow">‹</string>
 </resources>

@@ -12,6 +12,16 @@
         android:orientation="vertical"
         android:padding="18dp">
 
+        <Button
+            android:id="@+id/screen_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#1B252E"
+            android:contentDescription="@string/back"
+            android:text="@string/back_arrow"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,9 +157,9 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView android:id="@+id/nav_inicio" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inicio" android:textColor="#F2B705" android:textSize="11sp" />
-        <TextView android:id="@+id/nav_clientes" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Clientes" android:textColor="#AAB4BC" android:textSize="11sp" />
-        <TextView android:id="@+id/nav_inventario" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inventario" android:textColor="#AAB4BC" android:textSize="11sp" />
-        <TextView android:id="@+id/nav_cotizaciones" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Cotizaciones" android:textColor="#AAB4BC" android:textSize="11sp" />
+        <TextView android:id="@+id/nav_inicio" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inicio" android:textColor="#F2B705" android:textSize="10sp" />
+        <TextView android:id="@+id/nav_clientes" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Clientes" android:textColor="#AAB4BC" android:textSize="10sp" />
+        <TextView android:id="@+id/nav_inventario" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Inventario" android:textColor="#AAB4BC" android:textSize="10sp" />
+        <TextView android:id="@+id/nav_cotizaciones" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="Cotizaciones" android:textColor="#AAB4BC" android:textSize="10sp" />
     </LinearLayout>
 </LinearLayout>
