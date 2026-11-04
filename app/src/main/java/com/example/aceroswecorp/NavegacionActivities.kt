@@ -7,7 +7,32 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowCompat
+
+internal fun AppCompatActivity.applySystemBarInsets() {
+    WindowCompat.setDecorFitsSystemWindows(window, false)
+    val root = findViewById<View>(R.id.screen_root)
+    val initialLeft = root.paddingLeft
+    val initialTop = root.paddingTop
+    val initialRight = root.paddingRight
+    val initialBottom = root.paddingBottom
+
+    ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
+        val systemBars = windowInsets.getInsets(
+            WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+        )
+        view.setPadding(
+            initialLeft + systemBars.left,
+            initialTop + systemBars.top,
+            initialRight + systemBars.right,
+            initialBottom + systemBars.bottom
+        )
+        windowInsets
+    }
+    ViewCompat.requestApplyInsets(root)
+}
 
 abstract class PantallaNavegableActivity : AppCompatActivity() {
     protected abstract val layoutId: Int
@@ -23,8 +48,8 @@ abstract class PantallaNavegableActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, true)
         setContentView(layoutId)
+        applySystemBarInsets()
 
         findViewById<View?>(R.id.screen_back)?.setOnClickListener { finish() }
         bindNavigation(R.id.nav_inicio, pantallaInicio())
