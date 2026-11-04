@@ -19,6 +19,7 @@
             android:layout_height="48dp"
             android:backgroundTint="#D95708"
             android:contentDescription="@string/back"
+            android:layout_marginTop="40dp"
             android:text="@string/back_arrow"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
