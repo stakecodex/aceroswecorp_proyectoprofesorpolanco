@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowCompat
+import com.google.firebase.auth.FirebaseAuth
 
 internal fun AppCompatActivity.applySystemBarInsets() {
     WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -73,6 +75,33 @@ abstract class PantallaNavegableActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            volverAlLogin()
+        }
+    }
+
+    protected fun configurarCerrarSesion() {
+        findViewById<View>(R.id.screen_back).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Quieres cerrar tu sesión?")
+                .setPositiveButton("Cerrar sesión") { _, _ ->
+                    FirebaseAuth.getInstance().signOut()
+                    volverAlLogin()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+    }
+
+    private fun volverAlLogin() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+    }
+
     protected fun bindNavigation(viewId: Int, destination: Class<out AppCompatActivity>) {
         findViewById<View?>(viewId)?.setOnClickListener {
             if (destination != javaClass) {
@@ -87,6 +116,7 @@ class MenuPrincipal : PantallaNavegableActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        configurarCerrarSesion()
         bindNavigation(R.id.button_new_quote, NuevaCotizacionActivity::class.java)
         bindNavigation(R.id.button_inventory, ConsultaInventarioActivity::class.java)
         bindNavigation(R.id.button_my_quotes, MisCotizacionesActivity::class.java)
@@ -108,6 +138,7 @@ class MenuAdministradorActivity : PantallaNavegableActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        configurarCerrarSesion()
         bindNavigation(R.id.admin_quotes, HistorialCotizacionesActivity::class.java)
         bindNavigation(R.id.admin_reports, VentasDocumentosActivity::class.java)
         findViewById<View>(R.id.admin_users).setOnClickListener {
@@ -128,7 +159,7 @@ class NuevaCotizacionActivity : PantallaNavegableActivity() {
         findViewById<View>(R.id.button_save_quote).setOnClickListener {
             Toast.makeText(
                 this,
-                "No se guardó: Firebase todavía no está configurado.",
+                "El guardado de cotizaciones se habilitará en el Hito 3.",
                 Toast.LENGTH_LONG
             ).show()
         }
