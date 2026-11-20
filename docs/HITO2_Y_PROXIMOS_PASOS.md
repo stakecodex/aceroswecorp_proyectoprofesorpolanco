@@ -43,7 +43,7 @@ Sin esto la app no compila.
 - **No aceptar el "Upgrade Assistant" (AGP 9.5.1) ni el cambio a Gradle 9.9** sin acordarlo en el equipo: un Android Studio más antiguo deja de abrir el proyecto.
 - **Cómo crear un administrador:** registra la cuenta normal en la app y, en **Firestore > perfiles > {uid}**, cambia `rol` de `vendedor` a `administrador`. El rol no se puede elegir desde la app.
 - **Se retiraron los botones "Explorar como vendedor / administrador".** Ahora se entra con una cuenta real.
-- **Firestore está en modo de prueba** (creado el 10-11-2026): permite leer y escribir a cualquiera por 30 días, hasta alrededor del 10-12-2026 (revisar la fecha exacta en **Firestore > Reglas**). Las reglas por `uid` y rol tienen que estar antes de esa fecha.
+- **Firestore se creó en modo de prueba** el 10-11-2026; revisa la fecha exacta de vencimiento en **Firestore > Reglas**. El repositorio incluye `firestore.rules` con reglas por UID y rol y casos automatizados contra el emulador. Las reglas no se aplican al proyecto hasta publicarlas desde una cuenta con acceso a Firebase.
 
 ## Pruebas del Hito 2 (evidencia)
 
@@ -63,23 +63,29 @@ Responsables sugeridos según la distribución preliminar de la propuesta (Bryan
 
 ### Hito 3 — Persistencia y vistas (semana 13)
 
-- [ ] Modelos Kotlin `PerfilUsuario`, `Producto`, `ItemCotizacion` y `Cotizacion` — Aníbal
-- [ ] CRUD de `productos` en Firestore: crear, listar, editar y eliminar — Aníbal y Bryan
-- [ ] CRUD de `cotizaciones` asociado al `uid` del vendedor — Bryan
-- [ ] ListView con adaptador propio y layout de fila para Consulta de inventario y Mis cotizaciones — José y Bryan
-- [ ] Mostrar nombre y rol del usuario en el encabezado de los menús, leídos de `perfiles` — Bryan
-- [ ] Igualar el resto de las pantallas al diseño "Layouts App Móvil Aceros We-Corp" — José
+- [x] Modelos Kotlin `PerfilUsuario`, `Producto`, `ItemCotizacion` y `Cotizacion`
+- [x] CRUD de `productos` en Firestore: crear, listar, editar y eliminar (administrador)
+- [x] CRUD de `cotizaciones` asociado al `uid` del vendedor; el vendedor crea, consulta y actualiza las propias, y el administrador puede eliminarlas según las reglas actuales
+- [x] ListView con adaptador propio para inventario y cotizaciones
+- [x] Mostrar nombre y rol del usuario en el encabezado, leídos de `perfiles`
+- [x] Aplicar el estilo compartido a las pantallas restantes
+- [ ] Comparar todas las pantallas con el canvas y guardar capturas en un dispositivo
 
 ### Hito 4 — Integración (semana 14)
 
-- [ ] Cámara con la API de resultados de actividad y foto guardada en Firebase Storage
-- [ ] Geolocalización con permisos en tiempo de ejecución (aceptado, denegado y sin ubicación)
-- [ ] AlertDialog con acciones positiva, negativa y neutra con resultados distintos; Toast de confirmación
-- [ ] Cliente REST `GET https://open.er-api.com/v6/latest/USD` mostrando `rates.CLP`, sin bloquear el hilo principal
-- [ ] Intent implícito `ACTION_VIEW` con una URI HTTPS
+- [x] Cámara con la API de resultados de actividad y foto guardada en Firebase Storage
+- [x] Geolocalización con permisos en tiempo de ejecución y manejo de denegación/ubicación desactivada
+- [x] AlertDialog con acciones positiva, negativa y neutra con resultados distintos
+- [x] Cliente REST `GET https://open.er-api.com/v6/latest/USD` mostrando `rates.CLP` en un hilo de trabajo
+- [x] Intent implícito `ACTION_VIEW` con una URI HTTPS
+- [ ] Ejecutar y documentar las pruebas manuales de cámara, ubicación, REST e intent en dispositivo
 
 ### Hito 5 — Cierre y entrega (semana 15)
 
-- [ ] Reglas de Firestore y Storage por `uid` y rol, probadas con casos permitidos y denegados (antes de que venza el modo de prueba)
-- [ ] Matriz de trazabilidad y registro de pruebas
-- [ ] APK y demostración
+- [x] Reglas de Firestore por `uid` y rol, con pruebas automatizadas de casos permitidos y denegados (falta publicar en Firebase antes de que venza el modo de prueba)
+- [x] Reglas de Storage para las fotos de cada usuario en `usuarios/{uid}/fotos/{fileName}`, con pruebas del emulador (falta publicar en Firebase Storage)
+- [x] Matriz de trazabilidad y registro de pruebas en `docs/REGISTRO_PRUEBAS_Y_MATRIZ_TRAZABILIDAD.md`
+- [x] APK de depuración generado en `app/build/outputs/apk/debug/app-debug.apk`
+- [ ] Demostración y evidencia de pruebas manuales en dispositivo
+
+Las reglas de Firestore no se han publicado. El archivo local `app/google-services.json` está excluido de Git; cada integrante debe obtenerlo por un canal autorizado y guardarlo localmente.
