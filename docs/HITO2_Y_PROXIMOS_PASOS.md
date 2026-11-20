@@ -43,7 +43,7 @@ Sin esto la app no compila.
 - **No aceptar el "Upgrade Assistant" (AGP 9.5.1) ni el cambio a Gradle 9.9** sin acordarlo en el equipo: un Android Studio más antiguo deja de abrir el proyecto.
 - **Cómo crear un administrador:** registra la cuenta normal en la app y, en **Firestore > perfiles > {uid}**, cambia `rol` de `vendedor` a `administrador`. El rol no se puede elegir desde la app.
 - **Se retiraron los botones "Explorar como vendedor / administrador".** Ahora se entra con una cuenta real.
-- **Firestore está en modo de prueba** (creado el 10-11-2026): permite leer y escribir a cualquiera por 30 días, hasta alrededor del 10-12-2026 (revisar la fecha exacta en **Firestore > Reglas**). Las reglas por `uid` y rol tienen que estar antes de esa fecha.
+- **Firestore se creó en modo de prueba** el 10-11-2026; revisa la fecha exacta de vencimiento en **Firestore > Reglas**. El repositorio incluye `firestore.rules` con reglas por UID y rol y casos automatizados contra el emulador. Las reglas no se aplican al proyecto hasta publicarlas desde una cuenta con acceso a Firebase.
 
 ## Pruebas del Hito 2 (evidencia)
 
@@ -80,6 +80,7 @@ Responsables sugeridos según la distribución preliminar de la propuesta (Bryan
 
 ### Hito 5 — Cierre y entrega (semana 15)
 
-- [ ] Reglas de Firestore y Storage por `uid` y rol, probadas con casos permitidos y denegados (antes de que venza el modo de prueba)
-- [ ] Matriz de trazabilidad y registro de pruebas
+- [x] Reglas de Firestore por `uid` y rol, con pruebas automatizadas de casos permitidos y denegados (falta publicar en Firebase antes de que venza el modo de prueba)
+- [ ] Reglas de Storage por `uid` y rol, cuando se confirme el esquema de rutas para imágenes
+- [x] Matriz de trazabilidad y registro de pruebas en `docs/REGISTRO_PRUEBAS_Y_MATRIZ_TRAZABILIDAD.md`
 - [ ] APK y demostración
