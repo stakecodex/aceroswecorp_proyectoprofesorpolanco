@@ -63,24 +63,29 @@ Responsables sugeridos según la distribución preliminar de la propuesta (Bryan
 
 ### Hito 3 — Persistencia y vistas (semana 13)
 
-- [ ] Modelos Kotlin `PerfilUsuario`, `Producto`, `ItemCotizacion` y `Cotizacion` — Aníbal
-- [ ] CRUD de `productos` en Firestore: crear, listar, editar y eliminar — Aníbal y Bryan
-- [ ] CRUD de `cotizaciones` asociado al `uid` del vendedor — Bryan
-- [ ] ListView con adaptador propio y layout de fila para Consulta de inventario y Mis cotizaciones — José y Bryan
-- [ ] Mostrar nombre y rol del usuario en el encabezado de los menús, leídos de `perfiles` — Bryan
-- [ ] Igualar el resto de las pantallas al diseño "Layouts App Móvil Aceros We-Corp" — José
+- [x] Modelos Kotlin `PerfilUsuario`, `Producto`, `ItemCotizacion` y `Cotizacion`
+- [x] CRUD de `productos` en Firestore: crear, listar, editar y eliminar (administrador)
+- [x] CRUD de `cotizaciones` asociado al `uid` del vendedor; el vendedor crea, consulta y actualiza las propias, y el administrador puede eliminarlas según las reglas actuales
+- [x] ListView con adaptador propio para inventario y cotizaciones
+- [x] Mostrar nombre y rol del usuario en el encabezado, leídos de `perfiles`
+- [x] Aplicar el estilo compartido a las pantallas restantes
+- [ ] Comparar todas las pantallas con el canvas y guardar capturas en un dispositivo
 
 ### Hito 4 — Integración (semana 14)
 
-- [ ] Cámara con la API de resultados de actividad y foto guardada en Firebase Storage
-- [ ] Geolocalización con permisos en tiempo de ejecución (aceptado, denegado y sin ubicación)
-- [ ] AlertDialog con acciones positiva, negativa y neutra con resultados distintos; Toast de confirmación
-- [ ] Cliente REST `GET https://open.er-api.com/v6/latest/USD` mostrando `rates.CLP`, sin bloquear el hilo principal
-- [ ] Intent implícito `ACTION_VIEW` con una URI HTTPS
+- [x] Cámara con la API de resultados de actividad y foto guardada en Firebase Storage
+- [x] Geolocalización con permisos en tiempo de ejecución y manejo de denegación/ubicación desactivada
+- [x] AlertDialog con acciones positiva, negativa y neutra con resultados distintos
+- [x] Cliente REST `GET https://open.er-api.com/v6/latest/USD` mostrando `rates.CLP` en un hilo de trabajo
+- [x] Intent implícito `ACTION_VIEW` con una URI HTTPS
+- [ ] Ejecutar y documentar las pruebas manuales de cámara, ubicación, REST e intent en dispositivo
 
 ### Hito 5 — Cierre y entrega (semana 15)
 
 - [x] Reglas de Firestore por `uid` y rol, con pruebas automatizadas de casos permitidos y denegados (falta publicar en Firebase antes de que venza el modo de prueba)
-- [ ] Reglas de Storage por `uid` y rol, cuando se confirme el esquema de rutas para imágenes
+- [x] Reglas de Storage para las fotos de cada usuario en `usuarios/{uid}/fotos/{fileName}`, con pruebas del emulador (falta publicar en Firebase Storage)
 - [x] Matriz de trazabilidad y registro de pruebas en `docs/REGISTRO_PRUEBAS_Y_MATRIZ_TRAZABILIDAD.md`
-- [ ] APK y demostración
+- [x] APK de depuración generado en `app/build/outputs/apk/debug/app-debug.apk`
+- [ ] Demostración y evidencia de pruebas manuales en dispositivo
+
+Las reglas de Firestore no se han publicado. El archivo local `app/google-services.json` está excluido de Git; cada integrante debe obtenerlo por un canal autorizado y guardarlo localmente.

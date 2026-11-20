@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function ownsPath(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function activeAdmin() {
+      return signedIn()
+        && firestore.exists(/databases/(default)/documents/perfiles/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/perfiles/$(request.auth.uid)).data.activo == true
+        && firestore.get(/databases/(default)/documents/perfiles/$(request.auth.uid)).data.rol == 'administrador';
+    }
+
+    match /usuarios/{uid}/fotos/{fileName} {
+      allow read, delete: if ownsPath(uid) || activeAdmin();
+      allow create, update: if (ownsPath(uid) || activeAdmin())
+        && request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+  }
+}
